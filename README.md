@@ -18,9 +18,12 @@ After restarting the PC, all devices are in paired mode - this should be remembe
   The implementation of the Madgwick filter that I found, takes too long the final values of X Y(or I likely didn't find how to speed it up). So I took the accelerometer for X Y and Madgwick for Z.
 The magnet from my column and Aida64 app on my phone showed that my LG has a magnetometer, but my daydreams don't(.
 In any case, the first three numbers from Mateo's article is definitely not it.
+
 Great alternative technology - [BTSTACK](https://github.com/bluekitchen/btstack).
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
+
 I didn't work professionally with C++ or hardware, so use it at your own risk.
+
 Below-an * indicates the position of the touchpad. 
 
 Operating procedure:
