@@ -2,7 +2,7 @@
 DayDream controller for windows 10
 
 
-  The daydream controllers is adapted to work with the mouse or CAD CATIA V5 in windows. I understand that it's a too late - but I didn't raise my hand to throw this code out(.
+  The daydream controllers is adapted to work with the mouse or CAD CATIA V5 in windows. I understand that it's a too late - but I can't bring myself to throw this code away ( .
 Based on [Matteo Pisani article](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4) .
 Environment is 64win10 VS2019 (v142 msvc)/16.3.6/std:c++latest environment/64. Tested on built-in Intel8265(nuc 7i5).
   Devices (max 2count) must have the connected status, paired mode is not enough for operation. 
