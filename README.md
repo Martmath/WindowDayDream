@@ -3,7 +3,7 @@ DayDream controller for windows 10
 
 
   The daydream controllers is adapted to work with the mouse or CAD CATIA V5 in windows. I understand that it's a too late - but I didn't raise my hand to throw it out(.
-Based on https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4 Matteo Pisani.
+Based on ![Matteo Pisani article](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4?raw=true).
 Environment is 64win10 VS2019 (v142 msvc)/16.3.6/std:c++latest environment/64. Tested on built-in Intel8265(nuc 7i5).
   Devices (max 2count) must have the connected status, paired mode is not enough for operation. 
   ![fig. 0](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/0.png?raw=true)
@@ -15,7 +15,7 @@ CATIA V5 is likely to be 64-bit. If CATIA is loaded after VS its ole server may 
 The implementation of the Madgwick filter that I found, takes too long the final values of X Y(or I likely didn't find how to speed it up). So I took the accelerometer for X Y and Madgwick for Z.
 The magnet from my column and Aida64 app on my phone showed that my LG has a magnetometer, but my daydreams don't(.
 In any case, the first three numbers from Mateo's article is definitely not it.
-Great alternative technology - https://github.com/bluekitchen/btstack.
+Great alternative technology - ![BTSTACK](https://github.com/bluekitchen/btstack?raw=true) .
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
 I didn't work professionally with C++ or hardware, so use it at your own risk.
 Below-an * indicates the position of the touchpad. 
@@ -41,7 +41,7 @@ To return to its original state, again press the home button for a long time.
 
  
  Daydream контроллер для windows, адаптирован для работы с мышью и CAD CATIA V5. Понимаю что поздновато - но выбросить код рука не поднялась (.
-Основано на https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4   Matteo Pisani.
+Основано на ![статья Matteo Pisani](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4?raw=true).
 Окружение 64win10 VS2019(v142 msvc)/16.3.6/std:c++latest environment/64. Проверялось на встроенном Intel8265(nuc 7i5)
 Девайсы (макс - 2шт.) должны быть приконекчены, сопряжения для работы недостаточно. Если устройство само переходит из connected в paired режим - проверьте зарядку устройства. 
 Иногда помогало воткнуть кабель в контроллер или наоборот вытащить.
@@ -56,10 +56,10 @@ To return to its original state, again press the home button for a long time.
 Ни с плюсами ни с железом профессионально не работал, так что - юзайте на свой страх и риск
 Ниже - * - положнение тачпада:
 Запускаем приложение:
- 1)Выставляем девайс в базовое положение. Нажимаем home button(дальнюю от тачпада): |* | ;
- 2)Поворачиваем по часовой стрелке на горизонтальной плоскости на 90 градусов. Снова нажимаем home button: =* ;
- 3)По старому пути возвращаем на прежнее положение девайс. Поворачиваем вдоль длинной стороны по часовой стрелке. Жмем home button. |* ;
- 4)Возвращаем в начальное положение. Поворачиваем вверх вертикально на 90 градусов (вдоль короткой стороны). Жмем home button. _ .
+ 1) Выставляем девайс в базовое положение. Нажимаем home button(дальнюю от тачпада): |* | ;
+ 2) Поворачиваем по часовой стрелке на горизонтальной плоскости на 90 градусов. Снова нажимаем home button: =* ;
+ 3) По старому пути возвращаем на прежнее положение девайс. Поворачиваем вдоль длинной стороны по часовой стрелке. Жмем home button. |* ;
+ 4) Возвращаем в начальное положение. Поворачиваем вверх вертикально на 90 градусов (вдоль короткой стороны). Жмем home button. _ .
   Теперь можно выбрать режим - работа с CAD CATIA или мышью. Жмем долго home button.
 Если запущена CATIA - мы можем активировать режим работы с CAD. Жмем арр button, рядом с тачпадом (после долгого нажатия home button). Теперь вращая девайс мы можем вращать модель.
 Кнопки прибавить/убавить звук удаляют и приближают модель.
