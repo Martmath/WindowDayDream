@@ -15,7 +15,7 @@ CATIA V5 is likely to be 64-bit. If CATIA is loaded after VS its ole server may 
 The implementation of the Madgwick filter that I found, takes too long the final values of X Y(or I likely didn't find how to speed it up). So I took the accelerometer for X Y and Madgwick for Z.
 The magnet from my column and Aida64 app on my phone showed that my LG has a magnetometer, but my daydreams don't(.
 In any case, the first three numbers from Mateo's article is definitely not it.
-Great alternative technology - [BTSTACK](https://github.com/bluekitchen/btstack) .
+Great alternative technology - [BTSTACK](https://github.com/bluekitchen/btstack).
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
 I didn't work professionally with C++ or hardware, so use it at your own risk.
 Below-an * indicates the position of the touchpad. 
@@ -41,7 +41,7 @@ To return to its original state, again press the home button for a long time.
 
  
  Daydream контроллер для windows, адаптирован для работы с мышью и CAD CATIA V5. Понимаю что поздновато - но выбросить код рука не поднялась (.
-Основано на ![статья Matteo Pisani](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4?raw=true).
+Основано на [статья Matteo Pisani](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4).
 Окружение 64win10 VS2019(v142 msvc)/16.3.6/std:c++latest environment/64. Проверялось на встроенном Intel8265(nuc 7i5)
 Девайсы (макс - 2шт.) должны быть приконекчены, сопряжения для работы недостаточно. Если устройство само переходит из connected в paired режим - проверьте зарядку устройства. 
 Иногда помогало воткнуть кабель в контроллер или наоборот вытащить.
@@ -51,7 +51,7 @@ To return to its original state, again press the home button for a long time.
 
 Магнит от моей колонки и аида на телефоне показали что мой lg имеет вполне себе кошерный магнитомер, а мои дейдримы (разные - в т.ч. и косящий под "родной") -нет(. 
 Во всяком случае -первые три 13ти битных числа из статьи Матео это точно не он.
-Отличная альтернативная технология - https://github.com/bluekitchen/btstack.
+Отличная альтернативная технология - [BTSTACK](https://github.com/bluekitchen/btstack).
  Получалось взаимодействовать через 4.0 usb dongle (разумеется на 10ке - грабил потоковые данныее данные в 20бит). Но как-то оформить уже нет ни желания, ни сил(.
 Ни с плюсами ни с железом профессионально не работал, так что - юзайте на свой страх и риск
 Ниже - * - положнение тачпада:
@@ -60,6 +60,7 @@ To return to its original state, again press the home button for a long time.
  2) Поворачиваем по часовой стрелке на горизонтальной плоскости на 90 градусов. Снова нажимаем home button: =* ;
  3) По старому пути возвращаем на прежнее положение девайс. Поворачиваем вдоль длинной стороны по часовой стрелке. Жмем home button. |* ;
  4) Возвращаем в начальное положение. Поворачиваем вверх вертикально на 90 градусов (вдоль короткой стороны). Жмем home button. _ .
+ 
   Теперь можно выбрать режим - работа с CAD CATIA или мышью. Жмем долго home button.
 Если запущена CATIA - мы можем активировать режим работы с CAD. Жмем арр button, рядом с тачпадом (после долгого нажатия home button). Теперь вращая девайс мы можем вращать модель.
 Кнопки прибавить/убавить звук удаляют и приближают модель.
