@@ -19,8 +19,11 @@ Great alternative technology - [BTSTACK](https://github.com/bluekitchen/btstack)
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
 I didn't work professionally with C++ or hardware, so use it at your own risk.
 Below-an * indicates the position of the touchpad. 
+
 Operating procedure:
+
 Launch the application.
+
 1) Set the device to its base position, as in fig. 1. Press the home button (the far button from touchpad): |* | ; 
 ![fig. 1](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/1.png?raw=true)
 2) Turn it clockwise on a horizontal plane 90 degrees and press again home button: =* ;
