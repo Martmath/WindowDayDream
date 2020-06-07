@@ -20,20 +20,15 @@ I was able to work via 4.0 usb dongle using this (of course on Windows 10). But 
 I didn't work professionally with C++ or hardware, so use it at your own risk.
 Below-an * indicates the position of the touchpad. 
 Operating procedure:
-Launch the application
-
+Launch the application.
 1) Set the device to its base position, as in fig. 1. Press the home button (the far button from touchpad): |* | ; 
 ![fig. 1](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/1.png?raw=true)
-
 2) Turn it clockwise on a horizontal plane 90 degrees and press again home button: =* ;
 ![fig. 2](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/2.png?raw=true)
-
-3)On the old path, return the device to its original starting position. We turn along the long side clockwise. Click home button. |* ;
+3) On the old path, return the device to its original starting position. We turn along the long side clockwise. Click home button. |* ;
 ![fig. 3](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/3.png?raw=true)
-
-4)Return to the starting position. Turn vertically 90 degrees along short side. Click home button. _ 
+4) Return to the starting position. Turn vertically 90 degrees along short side. Click home button. _ 
 ![fig. 4](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/4.png?raw=true)
-
  Now you can choose the mode - work with CAD CATIA or the mouse. Long press the home button.
 If CATIA is running, we can activate the CAD mode. Click the app button, next to
 touchpad (after a long press of the home button). Now by rotating the device we can rotate the model.
@@ -42,7 +37,6 @@ If after a long press of the home button, press the touchpad - the mouse mode is
 Now rotating the device and working through the touchpad, you can move the cursor. Pressing the touchpad will correspond to the left mouse buttons, clicking on the app button is clicking on the right mouse button.
 If the CATIA application is not running, thus, after a Long press of the home button, the mouse mode is automatically activated.
 To return to its original state, again press the home button for a long time.
-
 
  Daydream контроллер для windows, адаптирован для работы с мышью и CAD CATIA V5. Понимаю что поздновато - но выбросить код рука не поднялась (.
 Основано на https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4   Matteo Pisani.
