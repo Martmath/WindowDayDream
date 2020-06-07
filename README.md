@@ -3,11 +3,7 @@ DayDream controller for windows 10
 
 
   The daydream controllers is adapted to work with the mouse or CAD CATIA V5 in windows. I understand that it's a too late - but I didn't raise my hand to throw it out(.
-Based on [Matteo Pisani article](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4?raw=true) .
-
-<src="https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4" alt="Matteo Pisani article еуые">
-
-<img src="https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4" alt="test" style="max-width:100%;">
+Based on [Matteo Pisani article](https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4) .
 Environment is 64win10 VS2019 (v142 msvc)/16.3.6/std:c++latest environment/64. Tested on built-in Intel8265(nuc 7i5).
   Devices (max 2count) must have the connected status, paired mode is not enough for operation. 
   ![fig. 0](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/0.png?raw=true)
@@ -19,7 +15,7 @@ CATIA V5 is likely to be 64-bit. If CATIA is loaded after VS its ole server may 
 The implementation of the Madgwick filter that I found, takes too long the final values of X Y(or I likely didn't find how to speed it up). So I took the accelerometer for X Y and Madgwick for Z.
 The magnet from my column and Aida64 app on my phone showed that my LG has a magnetometer, but my daydreams don't(.
 In any case, the first three numbers from Mateo's article is definitely not it.
-Great alternative technology - ![BTSTACK](https://github.com/bluekitchen/btstack?raw=true) .
+Great alternative technology - [BTSTACK](https://github.com/bluekitchen/btstack) .
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
 I didn't work professionally with C++ or hardware, so use it at your own risk.
 Below-an * indicates the position of the touchpad. 
