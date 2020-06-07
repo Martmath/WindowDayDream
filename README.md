@@ -29,6 +29,7 @@ Launch the application.
 ![fig. 3](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/3.png?raw=true)
 4) Return to the starting position. Turn vertically 90 degrees along short side. Click home button. _ 
 ![fig. 4](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/4.png?raw=true)
+
  Now you can choose the mode - work with CAD CATIA or the mouse. Long press the home button.
 If CATIA is running, we can activate the CAD mode. Click the app button, next to
 touchpad (after a long press of the home button). Now by rotating the device we can rotate the model.
@@ -38,6 +39,7 @@ Now rotating the device and working through the touchpad, you can move the curso
 If the CATIA application is not running, thus, after a Long press of the home button, the mouse mode is automatically activated.
 To return to its original state, again press the home button for a long time.
 
+ 
  Daydream контроллер для windows, адаптирован для работы с мышью и CAD CATIA V5. Понимаю что поздновато - но выбросить код рука не поднялась (.
 Основано на https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4   Matteo Pisani.
 Окружение 64win10 VS2019(v142 msvc)/16.3.6/std:c++latest environment/64. Проверялось на встроенном Intel8265(nuc 7i5)
