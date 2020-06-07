@@ -5,25 +5,31 @@ DayDream controller for windows 10
   The daydream controllers is adapted to work with the mouse or CAD CATIA V5 in windows. I understand that it's a too late - but I didn't raise my hand to throw it out(.
 Based on https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4 Matteo Pisani.
 Environment is 64win10 VS2019 (v142 msvc)/16.3.6/std:c++latest environment/64. Tested on built-in Intel8265(nuc 7i5).
-  Devices (max-2) must have the connected status, paired mode is not enough for operation. if the device itself goes from connected to paired mode, check the charging of the device. 
+  Devices (max 2count) must have the connected status, paired mode is not enough for operation. 
+  ![fig. 0](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/0.png?raw=true)
+  if the device itself goes from connected to paired mode, check the charging of the device. 
 Try pressing controller home button before clicking OK button in the desktop app.
 Sometimes it helped to plug the charging cable into the controller or pull it out.
-After restarting the PC, all devices are in paired mode - this should be remembered. CATIA is likely to be 64-bit. If CATIA is loaded after VS its ole server may not be detected.
+After restarting the PC, all devices are in paired mode - this should be remembered. 
+CATIA V5 is likely to be 64-bit. If CATIA is loaded after VS its ole server may not be detected.
 The implementation of the Madgwick filter that I found, takes too long the final values of X Y(or I likely didn't find how to speed it up). So I took the accelerometer for X Y and Madgwick for Z.
 The magnet from my column and Aida64 app on my phone showed that my LG has a magnetometer, but my daydreams don't(.
 In any case, the first three numbers from Mateo's article is definitely not it.
 Great alternative technology - https://github.com/bluekitchen/btstack.
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
-I didn't work professionally with C++ or hardware, so use it at your own risk
+I didn't work professionally with C++ or hardware, so use it at your own risk.
 Below-an * indicates the position of the touchpad. 
 Operating procedure:
 Launch the application 
 1) Set the device to its base position, as in fig. 1. Press the home button (the far button from touchpad): |* |; 
-![alt text](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/1.png)
-2) Turn it clockwise on a horizontal plane 90 degrees and press again home button: = *;
-3)On the old path, return the device to its original starting position. We turn along the long side clockwise. Click home button. |*
+![fig. 1](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/1.png?raw=true)
+2) Turn it clockwise on a horizontal plane 90 degrees and press again home button: =* ;
+![fig. 2](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/2.png?raw=true)
+3)On the old path, return the device to its original starting position. We turn along the long side clockwise. Click home button. |* ;
+![fig. 3](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/3.png?raw=true)
 4)Return to the starting position. Turn vertically 90 degrees along short side. Click home button. _ 
-Now you can choose the mode - work with CAD CATIA or the mouse. Long press the home button.
+![fig. 4](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/4.png?raw=true)
+ Now you can choose the mode - work with CAD CATIA or the mouse. Long press the home button.
 If CATIA is running, we can activate the CAD mode. Click the app button, next to
 touchpad (after a long press of the home button). Now by rotating the device we can rotate the model.
 Buttons to add sound and buttons to decrease sound remove and bring the model closer.
