@@ -7,6 +7,7 @@ Based on [Matteo Pisani article](https://hackernoon.com/how-i-hacked-google-dayd
 
 <src="https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4" alt="Matteo Pisani article еуые">
 
+<img src="https://hackernoon.com/how-i-hacked-google-daydream-controller-c4619ef318e4" alt="test" style="max-width:100%;">
 Environment is 64win10 VS2019 (v142 msvc)/16.3.6/std:c++latest environment/64. Tested on built-in Intel8265(nuc 7i5).
   Devices (max 2count) must have the connected status, paired mode is not enough for operation. 
   ![fig. 0](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/0.png?raw=true)
