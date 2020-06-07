@@ -44,8 +44,10 @@ Launch the application.
 If CATIA is running, we can activate the CAD mode. Click the app button, next to
 touchpad (after a long press of the home button). Now by rotating the device we can rotate the CATPart model.
  Buttons to add sound and buttons to decrease sound remove and bring the model closer.
+ 
  If after a long press of the home button, press the touchpad - the mouse mode is activated.
  Now rotating the device and working through the touchpad, you can move the cursor. Pressing the touchpad will correspond to the left mouse buttons, clicking on the app button is clicking on the right mouse button.
+ 
   If the CATIA application is not running, thus, after a Long press of the home button, the mouse mode is automatically activated.
 To return to device original state, press the home button for a long time again.
 
