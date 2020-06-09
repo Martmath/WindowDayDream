@@ -17,7 +17,7 @@ After restarting the PC, all devices are in paired mode - this should be remembe
 
   The implementation of the Madgwick filter that I found, takes too long the final values of X Y(or I likely didn't find how to speed it up). So I took the accelerometer for X Y and Madgwick for Z.
 The magnet from my column and Aida64 app on my phone showed that my LG has a magnetometer, but my daydreams don't(.
-In any case, the first three numbers from Mateo's article is definitely not it.
+In any case, the second three numbers from Matteo's article is definitely not it(on my devices at least).
 
 Great alternative technology - [BTSTACK](https://github.com/bluekitchen/btstack).
 I was able to work via 4.0 usb dongle using this (of course on Windows 10). But there is no longer any desire or strength to formalize it(.
@@ -64,7 +64,7 @@ To return to device original state, press the home button for a long time again.
  Реализация фильтра Маджвика которую я нашел - слишком долго находит конечные значения X Y (или я, скорее всего, не нашел как ускорить), поэтому для X Y взял акселерометр. Зато она отлично ловит ось Z...
 
 Магнит от моей колонки и аида на телефоне показали что мой lg имеет вполне себе кошерный магнитомер, а мои дейдримы (разные - в т.ч. и косящий под "родной") -нет(. 
-Во всяком случае -первые три 13ти битных числа из статьи Матео это точно не он.
+Во всяком случае -вторая тройка 13ти битных чисел из статьи Маттео это точно не он.
 
 Отличная альтернативная технология - [BTSTACK](https://github.com/bluekitchen/btstack).
  Получалось взаимодействовать через 4.0 usb dongle (разумеется на 10ке - грабил потоковые данные в 20бит). Но как-то оформить уже нет ни желания, ни сил(.
