@@ -11,7 +11,7 @@
 
 #include "DDConnector.h"
 #include "MCommand.h"
-#include "Base—ycles.h"
+#include "Base√ëycles.h"
 //#define TO_SEARCH_DEVICE_UUID "{0000FE55-0000-1000-8000-00805F9B34FB}"
 
 #ifdef _DEBUG
@@ -167,6 +167,21 @@ HCURSOR CWindowDayDreamDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+//checking a parallel loop to speed up the madgwick algorithm(this didn't help)
+#include <thread>
+Madgwick mM1 = Madgwick();
+void mLoop(DataDevice* D, CWindowDayDreamDlg* dlg)
+{
+	while (true)
+	{
+		//DoEvents();	
+		mM1.updateIMU(D->gir.x, D->gir.y, D->gir.z, D->accel.x, D->accel.y, D->accel.z);
+		dlg->SetDlgItemText(IDC_EDIT16, std::to_string(mM1.getPitch()).c_str());
+		dlg->SetDlgItemText(IDC_EDIT17, std::to_string(mM1.getRoll()).c_str());
+		dlg->SetDlgItemText(IDC_EDIT18, std::to_string(mM1.getYaw()).c_str());
+	}
+}
+
 DDConnector e;
 void CWindowDayDreamDlg::OnBnClickedOk()
 {
@@ -177,8 +192,11 @@ void CWindowDayDreamDlg::OnBnClickedOk()
 	auto jq = e.getDeviceList();
 	TFirstDevice::EV::Ss::Start();
 	e.init(jq[0], (DDConnector::PFunc)(TFirstDevice::SomethingHappened));
+	
+	//std::thread thread(mLoop, &(Device<0>::data), theApp.dlg);
 
-	if (jq.size() > 1) {
+	if (jq.size() > 1) 
+	{
 		TSecondDevice::EV::Ss::Start();
 		e.init(jq[1], (DDConnector::PFunc)(TSecondDevice::SomethingHappened));
 	}	
