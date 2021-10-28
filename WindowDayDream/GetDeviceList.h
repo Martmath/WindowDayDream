@@ -60,7 +60,7 @@ struct BLEDevice
 			EE->Path = new char[500];
 
 			_tcsncpy_s(EE->Path, 500, r->Properties[TDevID::DEVICEID::ID].PropertyValue, 499);
-			EE->Path = replace_(EE->Path, "\\", "#");
+			EE->Path = replace_(EE->Path, (char*)"\\", (char*)"#");
 			//EE->Path = EE->Path + L"#";
 
 			char* str = new char[500];

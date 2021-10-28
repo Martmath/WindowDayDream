@@ -10,11 +10,12 @@
 #include "GetDeviceList.h"
 #include "OutputG.h"
 #include "MathBase.h"
+#include <iterator>
 
 using namespace std;
 #pragma comment(lib, "SetupAPI")
 #pragma comment(lib, "BluetoothApis.lib")
-#pragma comment(lib, "irprops.lib")
+#pragma comment(lib, "bthprops.lib")
 
 //#define TO_SEARCH_DEVICE_UUID "{0000FE55-0000-1000-8000-00805F9B34FB}"
 //#define TO_SEARCH_DEVICE_UUID "{0000180F-0000-1000-8000-00805F9B34FB}"
@@ -66,22 +67,24 @@ public:
 		hLEDevice = GetBLEHandle(AGuid,Pth);
 		USHORT serviceBufferCount;
 		PBTH_LE_GATT_SERVICE pServiceBuffer= nullptr;
-		if (INVALID_HANDLE_VALUE == hLEDevice) goto endcheckGuid;
-		HRESULT hr = BluetoothGATTGetServices(hLEDevice, 0, NULL, &serviceBufferCount, BLUETOOTH_GATT_FLAG_NONE);
-		if (HRESULT_FROM_WIN32(ERROR_MORE_DATA) != hr) goto endcheckGuid;
-		pServiceBuffer = (PBTH_LE_GATT_SERVICE)malloc(sizeof(BTH_LE_GATT_SERVICE) * serviceBufferCount);
-		if (NULL == pServiceBuffer) goto endcheckGuid;
-		USHORT numServices;
-		hr = BluetoothGATTGetServices(hLEDevice, serviceBufferCount, pServiceBuffer, &numServices, BLUETOOTH_GATT_FLAG_NONE);
-		if (S_OK != hr) goto endcheckGuid;
-		USHORT charBufferSize;
-		hr = BluetoothGATTGetCharacteristics(hLEDevice, pServiceBuffer, 0, NULL, &charBufferSize, BLUETOOTH_GATT_FLAG_NONE);
-		if (HRESULT_FROM_WIN32(ERROR_MORE_DATA) != hr)  goto endcheckGuid;
-		if (charBufferSize == 3)
+		if (INVALID_HANDLE_VALUE != hLEDevice)
 		{
-			PBTH_LE_GATT_CHARACTERISTIC pCharBuffer = NULL;		
-			free(pCharBuffer);
-			res = true;// (charValueDataSize == 28)|| (charValueDataSize == 8);
+			HRESULT hr = BluetoothGATTGetServices(hLEDevice, 0, NULL, &serviceBufferCount, BLUETOOTH_GATT_FLAG_NONE);
+			if (HRESULT_FROM_WIN32(ERROR_MORE_DATA) != hr) goto endcheckGuid;
+			pServiceBuffer = (PBTH_LE_GATT_SERVICE)malloc(sizeof(BTH_LE_GATT_SERVICE) * serviceBufferCount);
+			if (NULL == pServiceBuffer) goto endcheckGuid;
+			USHORT numServices;
+			hr = BluetoothGATTGetServices(hLEDevice, serviceBufferCount, pServiceBuffer, &numServices, BLUETOOTH_GATT_FLAG_NONE);
+			if (S_OK != hr) goto endcheckGuid;
+			USHORT charBufferSize;
+			hr = BluetoothGATTGetCharacteristics(hLEDevice, pServiceBuffer, 0, NULL, &charBufferSize, BLUETOOTH_GATT_FLAG_NONE);
+			if (HRESULT_FROM_WIN32(ERROR_MORE_DATA) != hr)  goto endcheckGuid;
+			if (charBufferSize == 3)
+			{
+				PBTH_LE_GATT_CHARACTERISTIC pCharBuffer = NULL;
+				free(pCharBuffer);
+				res = true;// (charValueDataSize == 28)|| (charValueDataSize == 8);
+			}
 		}
 	endcheckGuid:
 		free(pServiceBuffer);
@@ -142,23 +145,23 @@ public:
 			if (descriptorBufferSize > 0)
 			{
 				pDescriptorBuffer = (PBTH_LE_GATT_DESCRIPTOR)malloc(descriptorBufferSize * sizeof(BTH_LE_GATT_DESCRIPTOR));
-				IfPrintLINE(NULL == pDescriptorBuffer, "pDescriptorBuffer out of memory")
+				IfPrintLINE(NULL == pDescriptorBuffer, (TCHAR*) "pDescriptorBuffer out of memory")
 			else RtlZeroMemory(pDescriptorBuffer, descriptorBufferSize);
 			USHORT numDescriptors;
 			hr = BluetoothGATTGetDescriptors(hLEDevice, currGattChar, descriptorBufferSize, pDescriptorBuffer, &numDescriptors, BLUETOOTH_GATT_FLAG_NONE);
-			IfPrintLINE(S_OK != hr, "BluetoothGATTGetDescriptors - Actual Data %d", hr);
-			IfPrintLINE(numDescriptors != descriptorBufferSize, "buffer size and buffer size actual size mismatch");
+			IfPrintLINE(S_OK != hr, (TCHAR*) "BluetoothGATTGetDescriptors - Actual Data %d", hr);
+			IfPrintLINE(numDescriptors != descriptorBufferSize, (TCHAR*) "buffer size and buffer size actual size mismatch");
 			for (int j = 0; j < numDescriptors; j++)
 			{
 				PBTH_LE_GATT_DESCRIPTOR  currGattDescriptor = &pDescriptorBuffer[j];
 				USHORT descValueDataSize;
 				hr = BluetoothGATTGetDescriptorValue(hLEDevice, currGattDescriptor, 0, NULL, &descValueDataSize, BLUETOOTH_GATT_FLAG_NONE);
-				IfPrintLINE(HRESULT_FROM_WIN32(ERROR_MORE_DATA) != hr, "BluetoothGATTGetDescriptorValue - Buffer Size %d", hr);
+				IfPrintLINE(HRESULT_FROM_WIN32(ERROR_MORE_DATA) != hr, (TCHAR*)"BluetoothGATTGetDescriptorValue - Buffer Size %d", hr);
 				PBTH_LE_GATT_DESCRIPTOR_VALUE pDescValueBuffer = (PBTH_LE_GATT_DESCRIPTOR_VALUE)malloc(descValueDataSize);
-				IfPrintLINE(NULL == pDescValueBuffer, "pDescValueBuffer out of memory\r\n")
+				IfPrintLINE(NULL == pDescValueBuffer, (TCHAR*)"pDescValueBuffer out of memory\r\n")
 					else RtlZeroMemory(pDescValueBuffer, descValueDataSize);
 					hr = BluetoothGATTGetDescriptorValue(hLEDevice, currGattDescriptor, (ULONG)descValueDataSize, pDescValueBuffer, NULL, BLUETOOTH_GATT_FLAG_NONE);
-					IfPrintLINE(S_OK != hr, "BluetoothGATTGetDescriptorValue - Actual Data %d", hr);
+					IfPrintLINE(S_OK != hr, (TCHAR*)"BluetoothGATTGetDescriptorValue - Actual Data %d", hr);
 					if (currGattDescriptor->AttributeHandle < 255)
 					{
 						BTH_LE_GATT_DESCRIPTOR_VALUE newValue;
@@ -166,8 +169,8 @@ public:
 						newValue.DescriptorType = ClientCharacteristicConfiguration;
 						newValue.ClientCharacteristicConfiguration.IsSubscribeToNotification = TRUE;
 						hr = BluetoothGATTSetDescriptorValue(hLEDevice, currGattDescriptor, &newValue, BLUETOOTH_GATT_FLAG_NONE);
-						IfPrintLINE(S_OK != hr, "BluetoothGATTGetDescriptorValue - Actual Data %d", hr)
-					else _trace("setting notification for serivice handle %d\n", currGattDescriptor->ServiceHandle);
+						IfPrintLINE(S_OK != hr, (TCHAR*)"BluetoothGATTGetDescriptorValue - Actual Data %d", hr)
+					else _trace((TCHAR*) "setting notification for serivice handle %d\n", currGattDescriptor->ServiceHandle);
 					}
 			}
 			}

@@ -19,6 +19,7 @@ using namespace std;
 
 
 struct DataDevice;
+enum enumRunMode { nothing = 0, mouseRM, catiaRM };
 
 class AGMT {
 	 //float& (*value)(AGMT*);
@@ -142,9 +143,9 @@ struct DataButtons {
 	bool bTouch = false;/*15*/
 };
 
-enum enumRunMode { nothing = 0, mouseRM, catiaRM };
+
 struct TscData
-{
+{	
 	TripleXYZ<float> bXYZ;
 	timer aTimer;
 

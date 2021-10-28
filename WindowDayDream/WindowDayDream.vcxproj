@@ -192,7 +192,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BaseСycles.h" />
+    <ClInclude Include="BaseCycles.h" />
     <ClInclude Include="ByteWork.h" />
     <ClInclude Include="CCatia.h" />
     <ClInclude Include="ConstStack.h" />

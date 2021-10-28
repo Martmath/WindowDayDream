@@ -42,7 +42,7 @@ struct FuncFunctor:BaseFunctor<OutT, InT...>
 	OutT (*f) (InT...) = NULL;
 	FuncFunctor(OutT(*Func)(InT...)) :f{ Func }
 	{
-		fI = reinterpret_cast<uintptr_t>(f);
+		this->fI = reinterpret_cast<uintptr_t>(f);
 	};
 
 	OutT operator()(InT... x) override final { return (*f)(x...); }
@@ -59,16 +59,16 @@ struct ObjFunctor : BaseFunctor<OutT, InT...> {
 		o = new TObj{}; f = Func; insideO = true;
 //https://stackoverflow.com/questions/18814722/cast-pointer-to-member-function-to-intptr-t
 	auto t = f;     
-	fI = *reinterpret_cast<intptr_t*>(&t);
-	oI = reinterpret_cast<uintptr_t>(o);
+	this->fI = *reinterpret_cast<intptr_t*>(&t);
+	this->oI = reinterpret_cast<uintptr_t>(o);
 	}
 	ObjFunctor(TObj* obj, OutT(TObj::* Func)(InT...))   
 	{
 		o = obj;
 		f = Func;
 		auto t = f;       
-		fI = *reinterpret_cast<intptr_t*>(&t);
-		oI = reinterpret_cast<uintptr_t>(o);
+		this->fI = *reinterpret_cast<intptr_t*>(&t);
+		this->oI = reinterpret_cast<uintptr_t>(o);
 	}
 	~ObjFunctor() {
 		if (insideO) delete o;
@@ -82,7 +82,7 @@ struct fnFunctor : BaseFunctor<OutT, InT...> {
 
 	fnFunctor(function<OutT(InT...)> Func) :f{ Func }
 	{
-		fI = reinterpret_cast<uintptr_t>(&f);
+		this->fI = reinterpret_cast<uintptr_t>(&f);
 	};
 	
 	OutT operator()(InT... x) override final { return f(x...); }
@@ -93,6 +93,8 @@ struct fnFunctor : BaseFunctor<OutT, InT...> {
 template<typename OutT, class ...InT>
 struct DelegateS
 {
+	function<OutT(InT...)> f = NULL;
+
 	std::set<BaseFunctor<OutT, InT...>*, typename BaseFunctor<OutT, InT...>::pCompare> s;
 
 	void add(BaseFunctor<OutT, InT...>* f) { s.insert(f); }
@@ -146,13 +148,13 @@ struct DelegateV<void, 0, InT...>
 
 	void Delete(int i) {
 		if (delF && (i == 0)) { delete s[0]; delF = false; }
-		vec.erase(vec.begin() + i);
+		s.erase(s.begin() + i);
 	}
 
 	void Delete(BaseFunctor<void, InT...>* i)
 	{
 		auto position = std::find(s.begin(), s.end(), i);
-		if (delF && (position == s.begin())) { delete s[0]; delF = false; s.erase(position)	}
+		if (delF && (position == s.begin())) { delete s[0]; delF = false; s.erase(position); }
 		else if (position != s.end()) s.erase(position);
 	}
 
@@ -267,16 +269,16 @@ static void delegateTest() {
 	vv_1.add(&reer);
 	vv_1();
 	DelegateV<int, DelegateC::site> vv;
-	BaseFunctor<int>& fg = FuncFunctor(QQf);
-	BaseFunctor<int>& f1 = FuncFunctor(QQf1);
+	BaseFunctor<int>& fg = (BaseFunctor<int>&)FuncFunctor(QQf);
+	BaseFunctor<int>& f1 = (BaseFunctor<int>&)FuncFunctor(QQf1);
 	vv.add(&f1);
 	vv.add(&fg);
 	auto wnnj = vv.s.size();
 	int wwqq = vv();
 
 	DelegateV<void> vv1;
-	BaseFunctor<void>& fg1 = FuncFunctor(Q1Qf);
-	BaseFunctor<void>& f11 = FuncFunctor(Q1Qf1);
+	BaseFunctor<void>& fg1 = (BaseFunctor<void>&)FuncFunctor(Q1Qf);
+	BaseFunctor<void>& f11 = (BaseFunctor<void>&)FuncFunctor(Q1Qf1);
 
 	vv1();
 	vv1.add(&rr);

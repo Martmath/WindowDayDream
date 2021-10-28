@@ -34,8 +34,8 @@ IfPrintLINE2, IfPrintLINE2, IfPrintLINE2, IfPrintLINE2,IfPrintLINE2, IfPrintLINE
 _pmc11, _pmc10, _pmc9, _pmc8,_pmc7, _pmc6, _pmc5,_pmc4,_pmc3,_pmc2,_pmc1) (__VA_ARGS__)) 
 
 
-#define IfPrintLINE1(x) if (x) _trace(#x  " : condition is not satisfied in line %d of func %s; \r\n", __LINE__, __WIDEFUNCTION__);
-#define IfPrintLINE2(x,...) if (x) {_trace(__VA_ARGS__); _trace( " ; " #x  " : condition is not satisfied in line %d of func %s; \r\n", __LINE__, __WIDEFUNCTION__);}
+#define IfPrintLINE1(x) if (x) _trace((TCHAR*) #x  " : condition is not satisfied in line %d of func %s; \r\n", __LINE__, __WIDEFUNCTION__);
+#define IfPrintLINE2(x,...) if (x) {_trace(__VA_ARGS__); _trace((TCHAR*) " ; " #x  " : condition is not satisfied in line %d of func %s; \r\n", __LINE__, __WIDEFUNCTION__);}
 #define IfPrintLINE(...)   PRINT_MACRO_CHOOSER(IfPrintLINE1,IfPrintLINE2,IfPrintLINE2,IfPrintLINE2, \
  IfPrintLINE2,IfPrintLINE2,IfPrintLINE2,IfPrintLINE2,IfPrintLINE2,IfPrintLINE2,IfPrintLINE2,__VA_ARGS__) 
 

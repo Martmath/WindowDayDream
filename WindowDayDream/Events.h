@@ -5,6 +5,11 @@
 #include "MathBase.h"
 #include "Mouse.h"
 #include "CCatia.h"
+#include "FileWork.h"
+//#include "MCommand.h"
+
+enum enumRunMode;
+
 template<class T, class... TT>
 struct Startable
 {
@@ -440,17 +445,17 @@ struct Events
 		static void pBegClick()
 		{
 			ICO.Init();
-			if ((ICO.hwndCATIA != 0) && (TData::data.eventData.runMode == nothing))
+			if ((ICO.hwndCATIA != 0) && (TData::data.eventData.runMode == enumRunMode::nothing))
 			{				
 				TData::data.bTouch.endClick = pRunMouse;
 				TData::data.bNTouch.endClick = pRunCatia;
 				TData::data.scenario = scenarioN::SELECT_MODE;
 			}	
-			else if ((ICO.hwndCATIA == 0) && (TData::data.eventData.runMode == nothing))
+			else if ((ICO.hwndCATIA == 0) && (TData::data.eventData.runMode == enumRunMode::nothing))
 			{
 				pRunMouse();				
 			}
-			else if (TData::data.eventData.runMode == mouseRM) { pStopMouse(); }
+			else if (TData::data.eventData.runMode == enumRunMode::mouseRM) { pStopMouse(); }
 			else { pStopCatia(); }
 		}
 
@@ -461,7 +466,7 @@ struct Events
 
 		static void pRunMouse()
 		{
-			TData::data.eventData.runMode = mouseRM;
+			TData::data.eventData.runMode = enumRunMode::mouseRM;
 			mouse.toZero();
 			scAGMT::pBegClick();
 			scTouchMove::pBegClick();
@@ -472,7 +477,7 @@ struct Events
 
 		static void pStopMouse()
 		{
-			TData::data.eventData.runMode = nothing;
+			TData::data.eventData.runMode = enumRunMode::nothing;
 			scAGMT::pEndClick();
 			scTouchMove::pEndClick();
 			scButtonsMouse::pEndClick();
@@ -482,14 +487,14 @@ struct Events
 
 		static void pRunCatia()
 		{
-			TData::data.eventData.runMode = catiaRM;
+			TData::data.eventData.runMode = enumRunMode::catiaRM;
 			scCatia::pBegClick();
 			TData::data.scenario = scenarioN::CATIA_MODE;
 		}
 
 		static void pStopCatia()
 		{
-			TData::data.eventData.runMode = nothing;
+			TData::data.eventData.runMode = enumRunMode::nothing;
 			scCatia::pEndClick();
 			TData::data.scenario = scenarioN::NO_ACTION;
 		}

@@ -11,7 +11,7 @@
 
 #include "DDConnector.h"
 #include "MCommand.h"
-#include "BaseÑycles.h"
+#include "BaseCycles.h"
 //#define TO_SEARCH_DEVICE_UUID "{0000FE55-0000-1000-8000-00805F9B34FB}"
 
 #ifdef _DEBUG
@@ -202,6 +202,12 @@ void CWindowDayDreamDlg::OnBnClickedOk()
 	}	
 	// TODO: Add your control notification handler code here
 	//CDialogEx::OnOK();
+
+	/*mytrace((TCHAR*)("fdgfg" " : condition is not satisfied in line %d of func %s; \r\n"), 119, __FUNCTION__);
+	LPCWSTR lpoTemp6 = L"GetOrigin";
+	std::wstring tempStr6(L"GetOrigin");
+	LPOLESTR ptUpdate6 = &tempStr6[0];
+	LPOLESTR ptUpdate44 = (LPOLESTR)L"ZoomOut";*/
 }
 
 

@@ -141,7 +141,7 @@ class CCatia
 		void init(IDispatch* actViewer)
 		{
 			//actViewer = ActViewer;
-			LPOLESTR ptUpdate = L"Update";
+			LPOLESTR ptUpdate = (LPOLESTR)L"Update";
 			actViewer->GetIDsOfNames(IID_NULL, &ptUpdate, 1, LOCALE_USER_DEFAULT, &UpdateID);
 		}
 
@@ -171,7 +171,7 @@ class CCatia
 		void init(IDispatch* actViewer)
 		{
 			//actViewer = ActViewer;
-			LPOLESTR ptUpdate = L"ZoomOut";
+			LPOLESTR ptUpdate = (LPOLESTR)L"ZoomOut";
 			actViewer->GetIDsOfNames(IID_NULL, &ptUpdate, 1, LOCALE_USER_DEFAULT, &ZoomOutID);
 		}
 
@@ -201,7 +201,7 @@ class CCatia
 		void init(IDispatch* actViewer)
 		{
 			//actViewer = ActViewer;
-			LPOLESTR ptUpdate = L"ZoomIn";
+			LPOLESTR ptUpdate = (LPOLESTR)L"ZoomIn";
 			actViewer->GetIDsOfNames(IID_NULL, &ptUpdate, 1, LOCALE_USER_DEFAULT, &ZoomInID);
 		}
 
@@ -242,7 +242,7 @@ class CCatia
 			TRACE("cRotate(IDispatch* actViewer)\n");
 			dataRotate = { new VARIANT[2], NULL, 2, 0 };
 			//actViewer = ActViewer;
-			LPOLESTR ptRotate = L"Rotate";
+			LPOLESTR ptRotate = (LPOLESTR)L"Rotate";
 			actViewer->GetIDsOfNames(IID_NULL, &ptRotate, 1, LOCALE_USER_DEFAULT, &RotateID);
 			VARIANT& Axis = dataRotate.rgvarg[1];
 			VARIANT& Angle = dataRotate.rgvarg[0];
@@ -461,16 +461,16 @@ public:
 		VARIANT result, buffer;
 		VariantInit(&result);
 
-		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, pApp, L"ActiveWindow", 0);
+		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, pApp, (LPOLESTR)L"ActiveWindow", 0);
 		ActWin = result.pdispVal;
 
-		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, ActWin, L"ActiveViewer", 0);
+		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, ActWin, (LPOLESTR)L"ActiveViewer", 0);
 		actViewer = result.pdispVal;
 
-		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, actViewer, L"Viewpoint3D", 0);
+		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, actViewer, (LPOLESTR)L"Viewpoint3D", 0);
 		actViewpoint = result.pdispVal;
 
-		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, actViewpoint, L"FocusDistance", 0);
+		hr = OLEMethod(DISPATCH_PROPERTYGET | DISPATCH_METHOD, &result, actViewpoint, (LPOLESTR)L"FocusDistance", 0);
 		double Focus = result.dblVal;
 
 		VARIANT arr;
@@ -484,19 +484,19 @@ public:
 		VARIANT* pVals;
 		HRESULT hr = SafeArrayAccessData(ww, (void**)&pVals);
 
-		hr = OLEMethod(DISPATCH_METHOD, &result, actViewpoint, L"GetSightDirection", 1, arr);
+		hr = OLEMethod(DISPATCH_METHOD, &result, actViewpoint, (LPOLESTR)L"GetSightDirection", 1, arr);
 
 		ViewAxis.YA.x = pVals[0].dblVal;
 		ViewAxis.YA.y = pVals[1].dblVal;
 		ViewAxis.YA.z = pVals[2].dblVal;
 
-		hr = OLEMethod(DISPATCH_METHOD, &result, actViewpoint, L"GetUpDirection", 1, arr);
+		hr = OLEMethod(DISPATCH_METHOD, &result, actViewpoint, (LPOLESTR)L"GetUpDirection", 1, arr);
 
 		ViewAxis.ZA.x = pVals[0].dblVal;
 		ViewAxis.ZA.y = pVals[1].dblVal;
 		ViewAxis.ZA.z = pVals[2].dblVal;
 
-		hr = OLEMethod(DISPATCH_METHOD, &result, actViewpoint, L"GetOrigin", 1, arr);
+		hr = OLEMethod(DISPATCH_METHOD, &result, actViewpoint, (LPOLESTR)L"GetOrigin", 1, arr);
 
 		ViewAxis.p.x = pVals[0].dblVal + (Focus * ViewAxis.YA.x);
 		ViewAxis.p.y = pVals[1].dblVal + (Focus * ViewAxis.YA.y);

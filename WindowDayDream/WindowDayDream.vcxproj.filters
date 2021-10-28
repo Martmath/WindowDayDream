@@ -27,7 +27,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseСycles.h">
+    <ClInclude Include="BaseCycles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DDConnector.h">

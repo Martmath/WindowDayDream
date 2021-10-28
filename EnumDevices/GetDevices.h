@@ -226,6 +226,7 @@ private:
 			Temp = _T("Fail to retrieve Device Problem");
 			_tcscpy(Properties[TDevID::PROBLEM::ID].PropertyValue, Temp);
 		}
+		//https://developercommunity.visualstudio.com/t/constexpr-function-in-sfinae/1048586
 		initField<TDevID::DEVICEID>(Properties);
 		initField<TDevID::STATUS>(Properties);
 		initField<TDevID::PROBLEM>(Properties);
