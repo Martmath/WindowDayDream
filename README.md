@@ -31,13 +31,13 @@ Operating procedure:
 Launch the application.
 
 1) Set the device to its base position, as in ![fig. 1](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/1.png?raw=true). Press the home button (the far button from touchpad): |* | ; 
-![fig. 1](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/1.png?raw=true)
+![fig. 1](https://github.com/Martmath/WindowDayDream/blob/master/WindowDayDream/picture/1.png?raw=true)
 2) Turn it clockwise on a horizontal plane 90 degrees and press again home button: =* ;
-![fig. 2](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/2.png?raw=true)
+![fig. 2](https://github.com/Martmath/WindowDayDream/blob/master/WindowDayDream/picture/2.png?raw=true)
 3) On the old path, return the device to its original starting position. We turn along the long side clockwise. Click home button. |* ;
-![fig. 3](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/3.png?raw=true)
+![fig. 3](https://github.com/Martmath/WindowDayDream/blob/master/WindowDayDream/picture/3.png?raw=true)
 4) Return to the starting position. Turn vertically 90 degrees along short side. Click home button. _ 
-![fig. 4](https://github.com/Martmath/WindowDayDream/tree/master/WindowDayDream/picture/4.png?raw=true)
+![fig. 4](https://github.com/Martmath/WindowDayDream/blob/master/WindowDayDream/picture/4.png?raw=true)
 
  Now you can choose the mode - work with CAD CATIA or the mouse. 
  Long press the home button.
